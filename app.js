@@ -1,7 +1,7 @@
 const container = document.querySelector(".container");
 const canvasBtn = document.querySelector(".edit-canvas");
 
-let canvasWidth = 300;
+let canvasWidth = 800;
 container.style.width = `${canvasWidth}px`;
 
 let cols = 6;
@@ -30,10 +30,8 @@ function mountCanvas() {
     for (let j = 0; j < rows; j++) {
       const row = document.createElement("div");
       row.className = "row";
-      row.setAttribute(
-        "style",
-        `border: 1px solid black; height: ${rowHeight}px;`
-      );
+      row.style.border = "1px solid #f2f2f2";
+      row.style.height = `${rowHeight}px`;
       col.appendChild(row);
     }
     container.appendChild(col);
@@ -48,12 +46,24 @@ function unmountCanvas() {
   }
 }
 
+function randomInt(max) {
+  return Math.floor(Math.random() * (max + 1));
+}
+
+function randomRgb() {
+  let r = randomInt(255);
+  let g = randomInt(255);
+  let b = randomInt(255);
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 function etch() {
   const tiles = document.querySelectorAll(".row");
 
   tiles.forEach((tile) => {
     tile.addEventListener("mouseover", () => {
-      tile.style.backgroundColor = "red";
+      tile.style.backgroundColor = randomRgb();
     });
   });
 }
