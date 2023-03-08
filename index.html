@@ -10,7 +10,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <button class="edit-canvas">Edit Canvas</button>
-    <div class="container"></div>
+    <button id="edit-canvas">Edit Canvas</button>
+    <button id="clear-canvas">Clear Canvas</button>
+
+    <fieldset id="colors">
+      <legend>Please select your preferred color input:</legend>
+      <div>
+        <input type="radio" name="color" id="rgb" value="rgb" checked />
+        <label for="rgb">Random Colors</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          name="color"
+          id="color-picker"
+          value="color picker"
+        />
+        <label for="color-picker">Color Picker</label>
+      </div>
+    </fieldset>
+    <div>
+      <label for="color-tool">Color Picker</label>
+      <input type="color" name="color tool" id="color-tool" />
+    </div>
+    <span class="canvas-size"></span>
+    <div id="canvas"></div>
   </body>
 </html>
